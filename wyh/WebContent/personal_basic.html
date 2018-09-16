@@ -88,10 +88,7 @@
                             </label>
                             <div class="col-sm-4">
                                 <select class="form-control" id="educationBackground" name="educationBackground.id">
-                                    <c:forEach items="${educationBackgrounds}" var="item">
-                                        <option value="${item.id}"
-                                                <c:if test="${item.id == userinfo.educationBackground.id}">selected</c:if>>${item.title}</option>
-                                    </c:forEach>
+                                        <option value=""  >${item.title}</option>
                                 </select>
                             </div>
                         </div>
@@ -102,10 +99,8 @@
                             </label>
                             <div class="col-sm-4">
                                 <select class="form-control" id="incomeGrade" name="incomeGrade.id">
-                                    <c:forEach items="${incomeGrades}" var="item">
-                                        <option value="${item.id}"
-                                                <c:if test="${item.id == userinfo.incomeGrade.id}">selected</c:if>>${item.title}</option>
-                                    </c:forEach>
+                                        <option value=""></option>
+                                  
                                 </select>
                             </div>
                         </div>
@@ -116,10 +111,9 @@
                             </label>
                             <div class="col-sm-4">
                                 <select class="form-control" id="marriage" name="marriage.id">
-                                    <c:forEach items="${marriages}" var="item">
-                                        <option value="${item.id}"
-                                                <c:if test="${item.id == userinfo.marriage.id}">selected</c:if>>${item.title}</option>
-                                    </c:forEach>
+                                    
+                                        <option value="">${item.title}</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -130,10 +124,7 @@
                             </label>
                             <div class="col-sm-4">
                                 <select class="form-control" id="kidCount" name="kidCount.id">
-                                    <c:forEach items="${kidCounts}" var="item">
-                                        <option value="${item.id}"
-                                                <c:if test="${item.id == userinfo.kidCount.id}">selected</c:if>>${item.title}</option>
-                                    </c:forEach>
+                                        <option value="${item.id}"  >${item.title}</option>
                                 </select>
                             </div>
                         </div>
@@ -144,10 +135,7 @@
                             </label>
                             <div class="col-sm-4">
                                 <select class="form-control" id="houseCondition" name="houseCondition.id">
-                                    <c:forEach items="${houseConditions}" var="item">
-                                        <option value="${item.id}"
-                                                <c:if test="${item.id == userinfo.houseCondition.id}">selected</c:if>>${item.title}</option>
-                                    </c:forEach>
+                                        <option value="${item.id}" >${item.title}</option>
                                 </select>
                             </div>
                         </div>
