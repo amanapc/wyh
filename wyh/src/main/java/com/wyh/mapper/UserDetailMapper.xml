@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wyh.mapper.UserDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.wyh.domain.UserDetail" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="card_address" property="cardAddress" jdbcType="VARCHAR" />
+    <result column="cardno" property="cardno" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="createdate" property="createdate" jdbcType="DATE" />
+    <result column="flag" property="flag" jdbcType="INTEGER" />
+    <result column="id_image1" property="idImage1" jdbcType="VARCHAR" />
+    <result column="id_image2" property="idImage2" jdbcType="VARCHAR" />
+    <result column="id_image3" property="idImage3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, real_name, sex, card_address, cardno, birthday, createdate, flag, id_image1, 
+    id_image2, id_image3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_userdetail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_userdetail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wyh.domain.UserDetail" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_userdetail (user_id, real_name, sex, 
+      card_address, cardno, birthday, 
+      createdate, flag, id_image1, 
+      id_image2, id_image3)
+    values (#{userId,jdbcType=INTEGER}, #{realName,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
+      #{cardAddress,jdbcType=VARCHAR}, #{cardno,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
+      #{createdate,jdbcType=DATE}, #{flag,jdbcType=INTEGER}, #{idImage1,jdbcType=VARCHAR}, 
+      #{idImage2,jdbcType=VARCHAR}, #{idImage3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wyh.domain.UserDetail" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_userdetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="cardAddress != null" >
+        card_address,
+      </if>
+      <if test="cardno != null" >
+        cardno,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="createdate != null" >
+        createdate,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+      <if test="idImage1 != null" >
+        id_image1,
+      </if>
+      <if test="idImage2 != null" >
+        id_image2,
+      </if>
+      <if test="idImage3 != null" >
+        id_image3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="cardAddress != null" >
+        #{cardAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cardno != null" >
+        #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="idImage1 != null" >
+        #{idImage1,jdbcType=VARCHAR},
+      </if>
+      <if test="idImage2 != null" >
+        #{idImage2,jdbcType=VARCHAR},
+      </if>
+      <if test="idImage3 != null" >
+        #{idImage3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wyh.domain.UserDetail" >
+    update t_userdetail
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="cardAddress != null" >
+        card_address = #{cardAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cardno != null" >
+        cardno = #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="createdate != null" >
+        createdate = #{createdate,jdbcType=DATE},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="idImage1 != null" >
+        id_image1 = #{idImage1,jdbcType=VARCHAR},
+      </if>
+      <if test="idImage2 != null" >
+        id_image2 = #{idImage2,jdbcType=VARCHAR},
+      </if>
+      <if test="idImage3 != null" >
+        id_image3 = #{idImage3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wyh.domain.UserDetail" >
+    update t_userdetail
+    set user_id = #{userId,jdbcType=INTEGER},
+      real_name = #{realName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      card_address = #{cardAddress,jdbcType=VARCHAR},
+      cardno = #{cardno,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      createdate = #{createdate,jdbcType=DATE},
+      flag = #{flag,jdbcType=INTEGER},
+      id_image1 = #{idImage1,jdbcType=VARCHAR},
+      id_image2 = #{idImage2,jdbcType=VARCHAR},
+      id_image3 = #{idImage3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
